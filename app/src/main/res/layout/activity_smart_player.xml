@@ -8,6 +8,85 @@
     android:layout_height="match_parent"
     tools:context=".SmartPlayerActivity">
 
+    <RelativeLayout
+        android:id="@+id/upper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/songName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25dp"
+            android:textStyle="italic|bold"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:layout_marginTop="16dp"
+            android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+        <ImageButton
+            android:id="@+id/previous_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_media_previous"
+            android:layout_marginRight="30dp"
+            android:visibility="invisible"/>
+
+
+        <ImageButton
+            android:id="@+id/play_pause_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/previous_btn"
+            android:layout_marginRight="30dp"
+            android:src="@android:drawable/ic_media_pause"
+            android:visibility="invisible"
+            android:layout_toRightOf="@+id/previous_btn" />
+
+
+        <ImageButton
+            android:id="@+id/next_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/play_pause_btn"
+            android:layout_toRightOf="@+id/previous_btn"
+            android:src="@android:drawable/ic_media_next"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+
+<Button
+    android:id="@+id/voice_enabled_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="20dp"
+    android:text="@string/voice_enabled_mode_on"
+    android:background="@color/colorPrimary"
+    android:textColor="@android:color/white"
+    android:textSize="18dp"
+    android:textAllCaps="false"/>
+
 
 
 </RelativeLayout>

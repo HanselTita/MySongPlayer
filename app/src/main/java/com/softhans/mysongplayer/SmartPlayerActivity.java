@@ -15,7 +15,11 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -28,6 +32,17 @@ public class SmartPlayerActivity extends AppCompatActivity {
     private SpeechRecognizer speechRecognizer;
     private Intent speechRecognizerIntent;
     private String keeper = "";
+
+
+    private ImageButton previousbtn, playpausebtn, nextbtn;
+    private Button voicebtn;
+    private TextView songNameTxt;
+
+    private ImageView imageView;
+    private RelativeLayout lower;
+
+    private String mode = "ON";
+
 
 
     @Override
@@ -43,6 +58,16 @@ public class SmartPlayerActivity extends AppCompatActivity {
         speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+
+
+        previousbtn = findViewById(R.id.previous_btn);
+        playpausebtn = findViewById(R.id.play_pause_btn);
+        nextbtn = findViewById(R.id.next_btn);
+        voicebtn = findViewById(R.id.voice_enabled_btn);
+        songNameTxt = findViewById(R.id.songName);
+        imageView = findViewById(R.id.logo);
+        lower = findViewById(R.id.lower);
+
 
         speechRecognizer.setRecognitionListener(new RecognitionListener() {
             @Override
@@ -123,6 +148,25 @@ public class SmartPlayerActivity extends AppCompatActivity {
             }
         });
 
+
+        voicebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                if(mode.equals("ON"))
+                {
+                    mode = "OFF";
+                    voicebtn.setText(R.string.voice_enabled_mode_off);
+                    lower.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    mode = "ON";
+                    voicebtn.setText(R.string.voice_enabled_mode_on);
+                    lower.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     private void checkVoiceCommandPermission()

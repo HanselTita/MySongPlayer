@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Song Player</string>
+    <string name="voice_enabled_mode_on">Voice Enabled Mode - ON</string>
+    <string name="voice_enabled_mode_off">Voice Enabled Mode - OFF</string>
 </resources>
